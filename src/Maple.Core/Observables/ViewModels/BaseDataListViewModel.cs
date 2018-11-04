@@ -46,7 +46,7 @@ namespace Maple.Core
         /// <value>
         /// The save command.
         /// </value>
-        public ICommand SaveCommand => new RelayCommand(Save);
+        public ICommand SaveCommand => AsyncCommand.Create(Save);
 
         protected BaseDataListViewModel(ViewModelServiceContainer container)
             : base(container.Messenger)
@@ -56,25 +56,25 @@ namespace Maple.Core
             _sequenceProvider = container.SequenceService;
         }
 
-        public abstract Task LoadAsync();
+        public abstract Task Load();
 
-        public abstract void Save();
+        public abstract Task Save();
 
         /// <summary>
         /// Removes the specified item.
         /// </summary>
         /// <param name="item">The item.</param>
-        public override void Remove(TViewModel viewModel)
+        public override void Remove(TViewModel item)
         {
-            if (viewModel == null)
-                throw new ArgumentNullException(nameof(viewModel), $"{nameof(viewModel)} {Resources.IsRequired}");
+            if (item == null)
+                throw new ArgumentNullException(nameof(item), $"{nameof(item)} {Resources.IsRequired}");
 
             using (BusyStack.GetToken())
             {
-                while (Items.Contains(viewModel))
+                while (Items.Contains(item))
                 {
-                    viewModel.Model.IsDeleted = true;
-                    base.Remove(viewModel);
+                    item.Model.IsDeleted = true;
+                    base.Remove(item);
                 }
             }
         }
@@ -112,14 +112,13 @@ namespace Maple.Core
             }
         }
 
-        public override void Add(TViewModel viewModel)
+        public override void Add(TViewModel item)
         {
-            if (viewModel == null)
-                throw new ArgumentNullException(nameof(viewModel), $"{nameof(viewModel)} {Resources.IsRequired}");
+            if (item == null)
+                throw new ArgumentNullException(nameof(item), $"{nameof(item)} {Resources.IsRequired}");
 
-            var sequence = _sequenceProvider.Get(Items.Cast<ISequence>().ToList());
-            viewModel.Sequence = sequence;
-            base.Add(viewModel);
+            item.Sequence = _sequenceProvider.Get(Items.Cast<ISequence>().ToList());
+            base.Add(item);
         }
 
         public override void AddRange(IEnumerable<TViewModel> items)

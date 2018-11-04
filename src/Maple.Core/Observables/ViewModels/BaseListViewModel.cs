@@ -165,12 +165,18 @@ namespace Maple.Core
             return Items != null && item != null;
         }
 
+        /// <summary>
+        /// Removes the specified item.
+        /// </summary>
+        /// <param name="item">The item.</param>
         public virtual void Remove(TViewModel item)
         {
             using (BusyStack.GetToken())
                 _items.Remove(item);
         }
 
+        /// <param name="items">The items.</param>
+        /// <exception cref="System.ArgumentNullException">items</exception>
         public virtual void RemoveRange(IEnumerable<TViewModel> items)
         {
             if (items == null)
@@ -180,6 +186,8 @@ namespace Maple.Core
                 _items.RemoveRange(items);
         }
 
+        /// <param name="items">The items.</param>
+        /// <exception cref="System.ArgumentNullException">items</exception>
         public virtual void RemoveRange(IList items)
         {
             if (items == null)
@@ -189,6 +197,13 @@ namespace Maple.Core
                 _items.RemoveRange(items.Cast<TViewModel>());
         }
 
+        /// <summary>
+        /// Determines whether this instance can remove the specified item.
+        /// </summary>
+        /// <param name="item">The item.</param>
+        /// <returns>
+        ///   <c>true</c> if this instance can remove the specified item; otherwise, <c>false</c>.
+        /// </returns>
         public virtual bool CanRemove(TViewModel item)
         {
             return CanClear() && item != null && Items.Contains(item);

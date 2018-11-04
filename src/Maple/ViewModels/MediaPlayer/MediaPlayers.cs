@@ -8,12 +8,12 @@ using Maple.Localization.Properties;
 
 namespace Maple
 {
-    public class MediaPlayers : BaseDataListViewModel<MediaPlayer, MediaPlayerModel>, IMediaPlayersViewModel
+    public sealed class MediaPlayers : BaseDataListViewModel<MediaPlayer, MediaPlayerModel>, IMediaPlayersViewModel
     {
         private readonly Func<IMediaPlayer> _playerFactory;
         private readonly AudioDevices _devices;
         private readonly IDialogViewModel _dialog;
-        private readonly Func<IMediaRepository> _repositoryFactory;
+        private readonly Func<IUnitOfWork> _repositoryFactory;
         private readonly IMediaPlayerMapper _mediaPlayerMapper;
         private readonly ILoggingNotifcationService _notificationService;
 
@@ -28,7 +28,7 @@ namespace Maple
         public MediaPlayers(ViewModelServiceContainer container,
                             IMediaPlayerMapper mediaPlayerMapper,
                             Func<IMediaPlayer> playerFactory,
-                            Func<IMediaRepository> repositoryFactory,
+                            Func<IUnitOfWork> repositoryFactory,
                             AudioDevices devices,
                             IDialogViewModel dialog)
             : base(container)
@@ -42,18 +42,18 @@ namespace Maple
             _notificationService = container.NotificationService;
         }
 
-        private void SaveInternal()
+        private async Task SaveInternal()
         {
             _log.Info($"{_translationService.Translate(nameof(Resources.Saving))} {_translationService.Translate(nameof(Resources.MediaPlayers))}");
             using (var context = _repositoryFactory())
             {
-                context.Save(this);
+                await context.SaveChanges().ConfigureAwait(false);
             }
         }
 
         public void Add()
         {
-            var sequence = _sequenceProvider.Get(Items.Select(p => (ISequence)p).ToList());
+            var sequence = _sequenceProvider.Get(Items.Cast<ISequence>().ToList());
             Add(_mediaPlayerMapper.GetNewMediaPlayer(sequence));
         }
 
@@ -78,25 +78,25 @@ namespace Maple
             Disposed = true;
         }
 
-        public override void Save()
+        public override Task Save()
         {
-            SaveInternal();
+            return SaveInternal();
         }
 
-        public override async Task LoadAsync()
+        public override async Task Load()
         {
             _notificationService.Info($"{_translationService.Translate(nameof(Resources.Loading))} {_translationService.Translate(nameof(Resources.MediaPlayers))}");
             Clear();
 
             using (var context = _repositoryFactory())
             {
-                var main = await context.GetMainMediaPlayerAsync().ConfigureAwait(true);
+                var main = await context.MediaPlayerRepository.GetMainMediaPlayerAsync().ConfigureAwait(true);
+                var viewModel = _mediaPlayerMapper.Get(main);
+                Add(viewModel);
+                SelectedItem = viewModel;
 
-                Add(main);
-                SelectedItem = main;
-
-                var others = await context.GetAllOptionalMediaPlayersAsync().ConfigureAwait(true);
-                AddRange(others);
+                var others = await context.MediaPlayerRepository.GetOptionalMediaPlayersAsync().ConfigureAwait(true);
+                AddRange(_mediaPlayerMapper.GetMany(others));
             }
 
             OnLoaded();

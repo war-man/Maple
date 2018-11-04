@@ -1,8 +1,9 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Maple.Domain;
+using Microsoft.Extensions.Logging;
 
 namespace Maple.Data
 {
-    public sealed class MapleUnitOfWork : UnitOfWork
+    public sealed class MapleUnitOfWork : UnitOfWork, IUnitOfWork
     {
         private readonly bool _shouldDispose;
 

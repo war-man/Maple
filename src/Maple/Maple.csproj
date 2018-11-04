@@ -123,7 +123,6 @@
     <Compile Include="Interfaces\IBaseMapper.cs" />
     <Compile Include="Interfaces\IMediaItemMapper.cs" />
     <Compile Include="Interfaces\IMediaPlayerMapper.cs" />
-    <Compile Include="Interfaces\IMediaRepository.cs" />
     <Compile Include="Interfaces\IPlaylistMapper.cs" />
     <Compile Include="Services\SquirrelLogger.cs" />
     <Compile Include="UI\FileSystemBrowserDetailTemplateSelector.cs" />
@@ -146,7 +145,6 @@
     <Compile Include="UI\Base\ConfigurableWindowSettings.cs" />
     <Compile Include="UI\Base\IocUserControl.cs" />
     <Compile Include="UI\Base\IoCWindow.cs" />
-    <Compile Include="Services\MediaRepository.cs" />
     <Compile Include="Services\VersionService.cs" />
     <Compile Include="SplashScreen.xaml.cs">
       <DependentUpon>SplashScreen.xaml</DependentUpon>

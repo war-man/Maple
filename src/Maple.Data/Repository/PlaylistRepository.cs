@@ -11,14 +11,9 @@ namespace Maple.Data
         {
         }
 
-        public Task<IReadOnlyCollection<PlaylistModel>> GetAsync()
+        public Task<IEnumerable<PlaylistModel>> ReadAsync()
         {
-            throw new System.NotImplementedException();
-        }
-
-        public Task<PlaylistModel> GetByIdAsync(int Id)
-        {
-            throw new System.NotImplementedException();
+            return ReadAsync(null, new[] { nameof(PlaylistModel.MediaItems) }, -1, -1);
         }
     }
 }

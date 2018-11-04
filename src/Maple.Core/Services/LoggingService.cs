@@ -10,7 +10,7 @@ namespace Maple.Core
     ///
     /// </summary>
     /// <seealso cref="Maple.Core.ILoggingService" />
-    public class LoggingService : ILoggingService
+    public sealed class LoggingService : ILoggingService
     {
         private readonly ILog _log;
 

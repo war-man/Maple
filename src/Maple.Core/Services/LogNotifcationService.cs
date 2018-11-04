@@ -5,7 +5,7 @@ using Maple.Localization.Properties;
 
 namespace Maple.Core
 {
-    public class LoggingNotifcationService : ILoggingNotifcationService
+    public sealed class LoggingNotifcationService : ILoggingNotifcationService
     {
         private readonly ILoggingService _log;
         private readonly IMessenger _messenger;

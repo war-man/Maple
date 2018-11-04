@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
-using Maple.Domain;
 using Microsoft.EntityFrameworkCore;
 
 namespace Maple.Data
 {
-    public abstract class UnitOfWork : IUnitOfWork
+    public abstract class UnitOfWork
     {
         internal DbContext Context { get; }
 

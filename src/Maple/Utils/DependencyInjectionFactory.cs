@@ -28,7 +28,7 @@ namespace Maple
                 RegisterValidation();
                 RegisterControls();
 
-                c.Resolve<ILocalizationService>().LoadAsync();
+                c.Resolve<ILocalizationService>().Load();
 
                 //if (Debugger.IsAttached)
                 //    Debugging();

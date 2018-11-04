@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 using Maple.Domain;
@@ -12,24 +13,15 @@ namespace Maple.Data
         {
         }
 
-        public Task<IReadOnlyCollection<MediaPlayerModel>> GetAsync()
+        public async Task<MediaPlayerModel> GetMainMediaPlayerAsync()
         {
-            throw new System.NotImplementedException();
+            var result = await ReadAsync(p => p.IsPrimary, new[] { nameof(MediaPlayerModel.Playlist) }, -1, 1).ConfigureAwait(false);
+            return result.First();
         }
 
-        public Task<MediaPlayerModel> GetByIdAsync(int Id)
+        public Task<IEnumerable<MediaPlayerModel>> GetOptionalMediaPlayersAsync()
         {
-            throw new System.NotImplementedException();
-        }
-
-        public Task<MediaPlayerModel> GetMainMediaPlayerAsync()
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public Task<IReadOnlyCollection<MediaPlayerModel>> GetOptionalMediaPlayersAsync()
-        {
-            throw new System.NotImplementedException();
+            return ReadAsync(p => !p.IsPrimary, new[] { nameof(MediaPlayerModel.Playlist) }, -1, -1);
         }
     }
 }

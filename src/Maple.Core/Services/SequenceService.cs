@@ -7,7 +7,7 @@ using Maple.Localization.Properties;
 
 namespace Maple.Core
 {
-    public class SequenceService : ISequenceService
+    public sealed class SequenceService : ISequenceService
     {
         private readonly ILoggingService _log;
 

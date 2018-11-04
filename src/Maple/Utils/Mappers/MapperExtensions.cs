@@ -19,19 +19,14 @@ namespace Maple
             return items.ForEach(mapper.Get);
         }
 
-        public static IList<MediaItem> GetManyAsList(this IMediaItemMapper mapper, IEnumerable<Domain.MediaItemModel> items)
-        {
-            return items.ForEach(mapper.Get).ToList();
-        }
-
         public static IEnumerable<Playlist> GetMany(this IPlaylistMapper mapper, IEnumerable<Domain.PlaylistModel> items)
         {
             return items.ForEach(mapper.Get);
         }
 
-        public static IEnumerable<Domain.PlaylistModel> GetManyData(this IPlaylistMapper mapper, IEnumerable<Playlist> items)
+        public static IEnumerable<MediaPlayer> GetMany(this IMediaPlayerMapper mapper, IEnumerable<Domain.MediaPlayerModel> items)
         {
-            return items.ForEach(mapper.GetData);
+            return items.ForEach(mapper.Get);
         }
 
         public static IMappingExpression<TSource, TDestination> Ignore<TSource, TDestination>(this IMappingExpression<TSource,

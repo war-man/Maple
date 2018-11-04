@@ -163,7 +163,7 @@ namespace Maple
             var tasks = new List<Task>();
 
             foreach (var item in _container.Resolve<IEnumerable<ILoadableViewModel>>())
-                tasks.Add(item.LoadAsync());
+                tasks.Add(item.Load());
 
             return tasks;
         }

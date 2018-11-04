@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+
 using Maple.Localization.Properties;
 
 namespace Maple.Core

@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
+
 using Maple.Core;
 using Maple.Domain;
 using Maple.Localization.Properties;
@@ -42,7 +43,6 @@ namespace Maple
             {
                 _log.Info($"{Resources.Saving} {Resources.Options}");
                 _manager.Save();
-
             });
         }
 

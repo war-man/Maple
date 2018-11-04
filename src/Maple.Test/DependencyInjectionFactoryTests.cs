@@ -1,9 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+
 using DryIoc;
+
 using Maple.Core;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 using NSubstitute;
 
 namespace Maple.Test
@@ -11,7 +15,6 @@ namespace Maple.Test
     [TestClass]
     public sealed class DependencyInjectionFactoryTests
     {
-
         [TestMethod]
         public async Task SanityMapleGetContainerTest()
         {

@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Diagnostics;
+
 using Maple.Domain;
+
 using SQLite.CodeFirst;
 
 namespace Maple.Data
@@ -166,7 +168,6 @@ namespace Maple.Data
                         context.SaveChanges();
                 }
             }
-
         }
 
         private void SeedMediaPlayers(TContext context)

@@ -9,7 +9,6 @@ namespace Maple.Domain
         public string Value { get; set; }
         public int Type { get; set; }
 
-
         [Required]
         public string Key { get; set; }
     }

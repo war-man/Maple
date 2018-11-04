@@ -9,6 +9,7 @@ namespace Maple.Domain
         [Key]
         [Column(Order = 1)]
         public int Id { get; set; }
+
         [Column(Order = 2)]
         public int Sequence { get; set; }
 

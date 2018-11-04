@@ -13,6 +13,7 @@ namespace Maple.Domain
 
         [MaxLength(100)]
         public string DeviceName { get; set; }
+
         public bool IsPrimary { get; set; }
 
         [Required]

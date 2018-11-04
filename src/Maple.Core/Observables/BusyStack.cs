@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Concurrent;
+
 using Maple.Localization.Properties;
 
 namespace Maple.Core
@@ -62,7 +63,7 @@ namespace Maple.Core
         /// <returns></returns>
         public bool Pull()
         {
-            var result = Items.TryTake(out BusyToken token);
+            var result = Items.TryTake(out var token);
 
             if (result)
                 InvokeOnChanged();
@@ -89,7 +90,7 @@ namespace Maple.Core
         /// </returns>
         public bool HasItems()
         {
-            return Items?.TryPeek(out BusyToken token) ?? false;
+            return Items?.TryPeek(out var token) ?? false;
         }
 
         /// <summary>

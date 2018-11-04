@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+
 using Maple.Core;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 using Shouldly;
 
 namespace Maple.Test

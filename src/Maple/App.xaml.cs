@@ -6,9 +6,12 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
+
 using DryIoc;
+
 using Maple.Core;
 using Maple.Domain;
+
 using Squirrel;
 
 namespace Maple
@@ -135,7 +138,6 @@ namespace Maple
                     //    Debug.WriteLine("Update found");
                     //    var releaseEntry = await manager.UpdateApp().ConfigureAwait(true);
                     //    Debug.WriteLine($"Update complete {releaseEntry.Version}");
-
 
                     //}
                 }

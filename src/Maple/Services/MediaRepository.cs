@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+
 using Maple.Core;
 using Maple.Data;
 using Maple.Localization.Properties;
@@ -197,7 +198,6 @@ namespace Maple
 
             if (disposing)
             {
-
                 // Free any other managed objects here.
             }
 

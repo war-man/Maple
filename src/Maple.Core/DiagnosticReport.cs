@@ -6,12 +6,13 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
-using Microsoft.Win32;
+
 using Humanizer;
+
+using Microsoft.Win32;
 
 namespace Maple.Core
 {
-
     /// <summary>
     /// A helper class for generating a report containing details related to
     /// <c>System</c>, <c>Process</c>, <c>Assemblies</c>, <c>Network</c> and <c>Environment</c>
@@ -168,7 +169,6 @@ namespace Maple.Core
 
                 if (d.IsReady)
                 {
-
                     driveFormat = d.DriveFormat;
                     volumeLabel = d.VolumeLabel;
                     capacity = d.TotalSize.Bytes().Gigabytes;
@@ -239,7 +239,6 @@ namespace Maple.Core
                         {
                             builder.Append(entry[i]);
                         }
-
                     }
                     else
                     {

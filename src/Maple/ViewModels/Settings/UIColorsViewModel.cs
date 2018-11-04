@@ -2,10 +2,13 @@
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
+
 using Maple.Core;
 using Maple.Domain;
 using Maple.Localization.Properties;
+
 using MaterialDesignColors;
+
 using MaterialDesignThemes.Wpf;
 
 namespace Maple
@@ -86,6 +89,7 @@ namespace Maple
         /// The refresh command.
         /// </value>
         public ICommand RefreshCommand => new RelayCommand(Load);
+
         /// <summary>
         /// Gets the load command.
         /// </summary>
@@ -93,6 +97,7 @@ namespace Maple
         /// The load command.
         /// </value>
         public ICommand LoadCommand => new RelayCommand(Load, () => !IsLoaded);
+
         /// <summary>
         /// Gets the save command.
         /// </summary>

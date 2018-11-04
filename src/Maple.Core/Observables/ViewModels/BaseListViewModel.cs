@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Windows.Data;
 using System.Windows.Input;
+
 using Maple.Domain;
 
 namespace Maple.Core
@@ -90,7 +91,6 @@ namespace Maple.Core
             : base(messenger)
         {
             _itemsLock = new object();
-
 
             Items = new RangeObservableCollection<TViewModel>();
             _items.CollectionChanged += ItemsCollectionChanged;

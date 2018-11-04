@@ -4,6 +4,7 @@ using System.Data.Entity;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+
 using Maple.Domain;
 
 namespace Maple.Data
@@ -59,7 +60,6 @@ namespace Maple.Data
 
             item.UpdatedOn = DateTime.UtcNow;
             item.UpdatedBy = System.Security.Principal.WindowsIdentity.GetCurrent().User.Value;
-
 
             context.Entry(entity).CurrentValues.SetValues(item);
         }

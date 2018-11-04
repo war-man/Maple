@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows.Data;
+
 using MaterialDesignThemes.Wpf.Converters;
 
 namespace Maple
@@ -23,10 +24,13 @@ namespace Maple
                 default:
                     // (case MathOperation.Add:)
                     return value1 + value2;
+
                 case MathOperation.Divide:
                     return value1 / value2;
+
                 case MathOperation.Multiply:
                     return value1 * value2;
+
                 case MathOperation.Subtract:
                     return value1 - value2;
             }

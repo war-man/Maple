@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Windows.Input;
+
 using FluentValidation;
+
 using Maple.Core;
 using Maple.Domain;
 using Maple.Localization.Properties;
@@ -113,7 +115,7 @@ namespace Maple
             set { SetValue(ref _updatedOn, value, OnChanged: () => Model.UpdatedOn = value); }
         }
 
-        private DateTime _createdOn;
+        private readonly DateTime _createdOn;
         public DateTime CreatedOn
         {
             get { return _updatedOn; }

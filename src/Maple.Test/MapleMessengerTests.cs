@@ -1,5 +1,7 @@
 ﻿using System;
+
 using Maple.Core;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace Maple.Test
@@ -59,7 +61,6 @@ namespace Maple.Test
         {
             public TestMessage(object sender) : base(sender)
             {
-
             }
         }
 
@@ -75,7 +76,6 @@ namespace Maple.Test
 
         public interface ITestMessageInterface : IMapleMessage
         {
-
         }
 
         public class InterfaceDerivedMessage<TThings> : ITestMessageInterface

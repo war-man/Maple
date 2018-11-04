@@ -608,7 +608,6 @@
                                     </MenuItem.Icon>
                                 </MenuItem>
                             </ContextMenu>
-
                         </Grid.Resources>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="0.4*" MinWidth="100" />
@@ -744,7 +743,6 @@
                                                                                         </DockPanel>
                                                                                     </Border>
                                                                                 </DataTemplate>
-
                                                                             </local:ListBox.Resources>
                                                                         </local:ListBox>
                                                                     </DataTemplate>
@@ -780,11 +778,9 @@
                                                                                         </DockPanel>
                                                                                     </Border>
                                                                                 </DataTemplate>
-
                                                                             </local:ListBox.Resources>
                                                                         </local:ListBox>
                                                                     </DataTemplate>
-
                                                                 </ContentPresenter.Resources>
                                                             </ContentPresenter>
                                                         </ControlTemplate>
@@ -899,14 +895,12 @@
                                                                                                               CommandParameter="{Binding Data, Source={StaticResource MapleDirectoryProxy}}"
                                                                                                               Gesture="LeftDoubleClick" />
                                                                                             </DockPanel.InputBindings>
-
                                                                                         </DockPanel>
                                                                                     </Border>
                                                                                 </DataTemplate>
                                                                             </local:ListBox.Resources>
                                                                         </local:ListBox>
                                                                     </DataTemplate>
-
                                                                 </ContentPresenter.Resources>
                                                             </ContentPresenter>
                                                         </ControlTemplate>
@@ -917,7 +911,6 @@
                                     </Style>
                                 </ContentControl.Style>
                             </ContentControl>
-
                         </DockPanel>
 
                         <!--  StatusBar  -->
@@ -1207,5 +1200,4 @@
         </StackPanel>
     </DataTemplate>
     <!--#endregion-->
-
 </local:SharedResourceDictionary>

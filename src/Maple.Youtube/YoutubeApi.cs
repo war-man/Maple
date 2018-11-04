@@ -5,11 +5,13 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Web;
 using System.Xml;
+
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Services;
 using Google.Apis.Util.Store;
 using Google.Apis.YouTube.v3;
 using Google.Apis.YouTube.v3.Data;
+
 using Maple.Domain;
 using Maple.Localization.Properties;
 
@@ -174,13 +176,11 @@ namespace Maple.Youtube
             var response = await request.ExecuteAsync()
                                         .ConfigureAwait(false);
 
-
             foreach (var item in response.Items)
             {
                 var nextPageToken = "";
                 while (nextPageToken != null)
                 {
-
                     result.Add(item);
 
                     nextPageToken = response.NextPageToken;

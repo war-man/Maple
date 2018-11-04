@@ -1,5 +1,7 @@
 using Maple.Core;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 using Shouldly;
 
 namespace Maple.Test

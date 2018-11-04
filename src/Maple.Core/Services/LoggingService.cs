@@ -1,5 +1,7 @@
 ﻿using System;
+
 using log4net;
+
 using Maple.Domain;
 
 namespace Maple.Core

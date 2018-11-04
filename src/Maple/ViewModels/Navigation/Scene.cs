@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+
 using Maple.Core;
 using Maple.Domain;
 using Maple.Localization.Properties;

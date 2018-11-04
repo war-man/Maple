@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+
 using AutoMapper;
+
 using Maple.Core;
 
 namespace Maple
@@ -12,7 +14,6 @@ namespace Maple
     /// </summary>
     public static class MapperExtensions
     {
-
         public static IEnumerable<MediaItem> GetMany(this IMediaItemMapper mapper, IEnumerable<Domain.MediaItemModel> items)
         {
             return items.ForEach(mapper.Get);

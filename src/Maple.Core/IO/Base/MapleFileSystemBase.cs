@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Input;
+
 using Maple.Localization.Properties;
 
 namespace Maple.Core
@@ -166,9 +167,13 @@ namespace Maple.Core
         }
 
         public abstract void Refresh();
+
         public abstract void LoadMetaData();
+
         public abstract void OnFilterChanged(string filter);
+
         public abstract void Delete();
+
         public abstract bool CanDelete();
 
         protected bool CanLoad()

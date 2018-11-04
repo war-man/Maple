@@ -1,4 +1,5 @@
 ﻿using System.Data.Entity;
+
 using Maple.Domain;
 
 namespace Maple.Data

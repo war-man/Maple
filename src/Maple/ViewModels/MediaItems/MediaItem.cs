@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
+
 using FluentValidation;
+
 using Maple.Core;
 using Maple.Domain;
 
@@ -99,7 +101,7 @@ namespace Maple
             set { SetValue(ref _updatedOn, value, OnChanged: () => Model.UpdatedOn = value); }
         }
 
-        private DateTime _createdOn;
+        private readonly DateTime _createdOn;
         public DateTime CreatedOn
         {
             get { return _updatedOn; }

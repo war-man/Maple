@@ -1,5 +1,7 @@
 ﻿using Maple.Core;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 using Shouldly;
 
 namespace Maple.Test
@@ -36,12 +38,19 @@ namespace Maple.Test
         }
 
         private class MyClassBase { }
+
         private class MyClassA : MyClassBase { }
+
         private class MyClassB : MyClassA { }
+
         private interface IMyInterface { }
+
         private class MyClassC : IMyInterface { }
+
         private class MyClassD : MyClassA, IMyInterface { }
+
         private struct MyStructA { }
+
         private struct MyStructB : IMyInterface { }
     }
 }

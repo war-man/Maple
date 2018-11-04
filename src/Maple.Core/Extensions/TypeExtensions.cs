@@ -434,6 +434,7 @@ namespace Maple.Core
                 case TypeCode.UInt32:
                 case TypeCode.UInt64:
                     return true;
+
                 default:
                     return false;
             }

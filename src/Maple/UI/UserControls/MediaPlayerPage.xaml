@@ -194,7 +194,6 @@
                                                 Binding="{Binding Duration, StringFormat={}{0:c}}"
                                                 Header="{local:Translation Duration}"
                                                 IsReadOnly="True" />
-
                         </DataGrid.Columns>
                     </DataGrid>
 
@@ -274,7 +273,6 @@
                                 <RadioButton IsChecked="{Binding RepeatMode, Converter={local:RadioButtonCheckedConverter}, ConverterParameter={x:Static domain:RepeatMode.All}, UpdateSourceTrigger=PropertyChanged}"
                                              Style="{StaticResource AllRepeatModeStyle}"
                                              ToolTip="{local:Translation PlaybackModeAll}" />
-
                             </StackPanel>
                         </DockPanel>
                     </DockPanel>

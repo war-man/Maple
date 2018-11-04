@@ -18,6 +18,7 @@ namespace Maple.Domain
 
         [MaxLength(100)]
         public string Description { get; set; }
+
         public string Location { get; set; }
         public bool IsShuffeling { get; set; }
         public int PrivacyStatus { get; set; }
@@ -26,6 +27,5 @@ namespace Maple.Domain
         [Required]
         [MaxLength(50)]
         public string Title { get; set; }
-
     }
 }

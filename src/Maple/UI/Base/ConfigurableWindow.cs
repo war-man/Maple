@@ -2,7 +2,9 @@
 using System.Threading;
 using System.Windows;
 using System.Windows.Threading;
+
 using MahApps.Metro.Controls;
+
 using Maple.Core;
 
 namespace Maple
@@ -96,7 +98,7 @@ namespace Maple
         /// <summary>
         /// Applies the settings.
         /// </summary>
-        void ApplySettings()
+        private void ApplySettings()
         {
             var size = _settings.WindowSize;
             SetCurrentValue(WidthProperty, size.Width);

@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
+
 using MahApps.Metro.IconPacks;
+
 using Maple.Domain;
 
 namespace Maple
@@ -12,6 +14,7 @@ namespace Maple
     public class PackIcon : PackIcon<PackIconKind>
     {
         private static IDictionary<PackIconKind, string> _cache;
+
         /// <summary>
         /// Initializes the <see cref="PackIcon"/> class.
         /// </summary>

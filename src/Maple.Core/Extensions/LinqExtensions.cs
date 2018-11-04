@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+
 using Maple.Domain;
 using Maple.Localization.Properties;
 
@@ -19,7 +20,6 @@ namespace Maple.Core
         {
             if (baseCollection == null)
                 throw new ArgumentNullException(nameof(baseCollection), $"{nameof(baseCollection)} {Resources.IsRequired}");
-
 
             // note: creating a Random instance each call may not be correct for you,
             // consider a thread-safe static instance

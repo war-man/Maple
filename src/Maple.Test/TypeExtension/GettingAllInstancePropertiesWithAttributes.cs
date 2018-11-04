@@ -1,6 +1,8 @@
 ﻿using System.Linq;
 using System.Reflection;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 using Shouldly;
 
 namespace Maple.Test

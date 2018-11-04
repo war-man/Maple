@@ -1,6 +1,8 @@
 ﻿using DryIoc;
+
 using Maple.Core;
 using Maple.Domain;
+
 using NSubstitute;
 
 namespace Maple.Test

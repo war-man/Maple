@@ -1,5 +1,7 @@
 ﻿using Maple.Core;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 using Shouldly;
 
 namespace Maple.Test
@@ -198,7 +200,6 @@ namespace Maple.Test
             report.ShouldContain("|\r\n|\t. Windows IP Configuration\r\n|");
             report.ShouldEndWith("\\");
         }
-
 
         [TestMethod, Ignore("can only be run on system with EN OS")]
         public void When_generating_system_and_process_and_drives_and_assemblies_and_environment_variables_and_networking_report()

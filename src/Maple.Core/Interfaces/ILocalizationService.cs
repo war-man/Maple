@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
+
 using Maple.Domain;
 
 namespace Maple.Core
@@ -19,6 +20,7 @@ namespace Maple.Core
         /// The current language.
         /// </value>
         CultureInfo CurrentLanguage { get; set; }
+
         /// <summary>
         /// Gets the languages.
         /// </summary>
@@ -26,6 +28,7 @@ namespace Maple.Core
         /// The languages.
         /// </value>
         IEnumerable<CultureInfo> Languages { get; }
+
         /// <summary>
         /// Translates the specified key.
         /// </summary>

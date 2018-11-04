@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
+
 using Maple.Domain;
 using Maple.Localization.Properties;
 
@@ -30,6 +31,7 @@ namespace Maple.Core
         /// The load command.
         /// </value>
         public ICommand LoadCommand => AsyncCommand.Create(LoadAsync, () => !IsLoaded);
+
         /// <summary>
         /// Gets the refresh command.
         /// </summary>
@@ -37,6 +39,7 @@ namespace Maple.Core
         /// The refresh command.
         /// </value>
         public ICommand RefreshCommand => AsyncCommand.Create(LoadAsync);
+
         /// <summary>
         /// Gets the save command.
         /// </summary>
@@ -54,6 +57,7 @@ namespace Maple.Core
         }
 
         public abstract Task LoadAsync();
+
         public abstract void Save();
 
         /// <summary>

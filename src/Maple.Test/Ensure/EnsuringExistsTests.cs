@@ -1,7 +1,10 @@
 ﻿using System.IO;
+
 using Maple.Core;
 using Maple.Localization.Properties;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 using Shouldly;
 
 namespace Maple.Test

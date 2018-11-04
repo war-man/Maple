@@ -17,6 +17,7 @@ namespace Maple.Core
         /// This dictionary caches the delegates for each 'to-clone' type.
         /// </summary>
         private static readonly Dictionary<Type, Delegate> CachedIlShallow = new Dictionary<Type, Delegate>();
+
         private static readonly Dictionary<Type, Delegate> CachedIlDeep = new Dictionary<Type, Delegate>();
         private static LocalBuilder _localBuilder;
 

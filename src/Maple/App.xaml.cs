@@ -11,7 +11,7 @@ using DryIoc;
 
 using Maple.Core;
 using Maple.Domain;
-
+using Microsoft.Extensions.Logging;
 using Squirrel;
 
 namespace Maple
@@ -28,6 +28,7 @@ namespace Maple
             _container = await DependencyInjectionFactory.Get().ConfigureAwait(true);
 
             var localizationService = _container.Resolve<ILocalizationService>();
+            var loggerFactory = _container.Resolve<ILoggerFactory>();
             var log = _container.Resolve<ILoggingService>();
 
             InitializeUpdater(log);

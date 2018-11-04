@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Maple.Domain
 {
@@ -14,8 +15,10 @@ namespace Maple.Domain
         public DateTime UpdatedOn { get; set; }
         public string UpdatedBy { get; set; }
 
+        [NotMapped]
         public bool IsDeleted { get; set; }
 
+        [NotMapped]
         public bool IsNew => Id.Equals(default);
     }
 }

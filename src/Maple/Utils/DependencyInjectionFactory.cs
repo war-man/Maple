@@ -7,7 +7,9 @@ using FluentValidation;
 using Maple.Core;
 using Maple.Data;
 using Maple.Domain;
+using Maple.Log;
 using Maple.Youtube;
+using Microsoft.Extensions.Logging;
 
 namespace Maple
 {
@@ -29,9 +31,6 @@ namespace Maple
                 RegisterControls();
 
                 c.Resolve<ILocalizationService>().Load();
-
-                //if (Debugger.IsAttached)
-                //    Debugging();
 
                 return c;
             }
@@ -71,7 +70,6 @@ namespace Maple
             {
                 c.Register<IMediaPlayer, NAudioMediaPlayer>(setup: Setup.With(allowDisposableTransient: true));
                 c.Register<IWavePlayerFactory, WavePlayerFactory>(Reuse.Singleton);
-                c.Register<IMediaRepository, MediaRepository>(Reuse.Singleton, setup: Setup.With(allowDisposableTransient: true));
 
                 c.Register<ViewModelServiceContainer>(Reuse.Singleton);
                 c.Register<PlaylistContext>(Reuse.Transient, setup: Setup.With(allowDisposableTransient: true));
@@ -79,6 +77,8 @@ namespace Maple
                 c.Register<IPlaylistRepository, PlaylistRepository>(Reuse.Singleton);
                 c.Register<IMediaItemRepository, MediaItemRepository>(Reuse.Singleton);
                 c.Register<IMediaPlayerRepository, MediaPlayerRepository>(Reuse.Singleton);
+
+                c.Register<IUnitOfWork, MapleUnitOfWork>(Reuse.Singleton);
 
                 c.Register<IPlaylistMapper, PlaylistMapper>();
                 c.Register<IMediaPlayerMapper, MediaPlayerMapper>();
@@ -97,6 +97,7 @@ namespace Maple
                 c.Register<ILoggingService, LoggingService>(Reuse.Singleton);
                 c.Register<ILoggingService, DetailLoggingService>(setup: Setup.DecoratorWith(order: 1));
                 c.Register<ILoggingService, SquirrelLogger>(setup: Setup.DecoratorWith(order: 2));
+                c.Register<ILoggerFactory, LoggerFactory>(Reuse.Singleton, Made.Of(() => new LoggerFactory()));
             }
 
             void RegisterValidation()

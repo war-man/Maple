@@ -11,12 +11,12 @@ namespace Maple
     {
         public MathOperation Operation { get; set; }
 
-        public override object Convert(object[] value, Type targetType, object parameter, CultureInfo culture)
+        public override object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value == null || value.Length < 2 || value[0] == null || value[1] == null)
+            if (values == null || values.Length < 2 || values[0] == null || values[1] == null)
                 return Binding.DoNothing;
 
-            if (!double.TryParse(value[0].ToString(), out var value1) || !double.TryParse(value[1].ToString(), out var value2))
+            if (!double.TryParse(values[0].ToString(), out var value1) || !double.TryParse(values[1].ToString(), out var value2))
                 return 0;
 
             switch (Operation)

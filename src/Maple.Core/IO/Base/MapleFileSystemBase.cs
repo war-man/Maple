@@ -28,7 +28,7 @@ namespace Maple.Core
             if (string.IsNullOrWhiteSpace(info.Filter))
                 return true;
 
-            return info.Name.ToLowerInvariant().Contains(info.Filter.ToLowerInvariant());
+            return info.Name.IndexOf(info.Filter, StringComparison.InvariantCultureIgnoreCase) >= 0;
         }
 
         public ICommand LoadCommand { get; protected set; }

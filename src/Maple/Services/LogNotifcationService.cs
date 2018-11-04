@@ -1,9 +1,9 @@
 ﻿using System;
-
+using Maple.Core;
 using Maple.Domain;
 using Maple.Localization.Properties;
 
-namespace Maple.Core
+namespace Maple
 {
     public sealed class LoggingNotifcationService : ILoggingNotifcationService
     {

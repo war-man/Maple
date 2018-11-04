@@ -153,7 +153,7 @@
                                     </MenuItem>
                                     <MenuItem Command="{Binding LoadFromUrlCommand}" Header="{local:Translation YoutubePlaylistImport}">
                                         <MenuItem.Icon>
-                                            <icons:PackIconMaterial Kind="YoutubePlay" />
+                                            <icons:PackIconMaterial Kind="Youtube" />
                                         </MenuItem.Icon>
                                     </MenuItem>
                                     <MenuItem Command="{Binding ClearCommand}" Header="{local:Translation Clear}">
@@ -176,7 +176,7 @@
                                                             <Setter Property="Kind" Value="File" />
                                                         </DataTrigger>
                                                         <DataTrigger Binding="{Binding IsFile}" Value="False">
-                                                            <Setter Property="Kind" Value="YoutubePlay" />
+                                                            <Setter Property="Kind" Value="Youtube" />
                                                         </DataTrigger>
                                                     </Style.Triggers>
                                                 </Style>

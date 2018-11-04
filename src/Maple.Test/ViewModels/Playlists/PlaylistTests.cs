@@ -461,7 +461,7 @@ namespace Maple.Test.ViewModels
         {
             var container = await DependencyInjectionFactory.Get().ConfigureAwait(false);
             var messenger = Substitute.For<IMessenger>();
-            container.UseInstance(typeof(IMessenger), messenger, IfAlreadyRegistered: IfAlreadyRegistered.Replace);
+            container.UseInstance(typeof(IMessenger), messenger, IfAlreadyRegistered: IfAlreadyRegistered.Replace, preventDisposal: false, weaklyReferenced: true, serviceKey: "");
 
             Assert.AreEqual(messenger, container.Resolve<IMessenger>());
 
@@ -478,7 +478,7 @@ namespace Maple.Test.ViewModels
         {
             var container = await DependencyInjectionFactory.Get().ConfigureAwait(false);
             var messenger = Substitute.For<IMessenger>();
-            container.UseInstance(typeof(IMessenger), messenger, IfAlreadyRegistered: IfAlreadyRegistered.Replace);
+            container.UseInstance(typeof(IMessenger), messenger, IfAlreadyRegistered: IfAlreadyRegistered.Replace, preventDisposal: false, weaklyReferenced: true, serviceKey: "");
 
             Assert.AreEqual(messenger, container.Resolve<IMessenger>());
 
@@ -545,7 +545,7 @@ namespace Maple.Test.ViewModels
             };
             var dialogViewModel = Substitute.For<IDialogViewModel>();
             dialogViewModel.ShowMediaItemSelectionDialog(NSubstitute.Arg.Any<FileSystemBrowserOptions>(), NSubstitute.Arg.Any<CancellationToken>()).Returns((true, mediaItems));
-            container.UseInstance(typeof(IDialogViewModel), dialogViewModel, IfAlreadyRegistered: IfAlreadyRegistered.Replace);
+            container.UseInstance(typeof(IDialogViewModel), dialogViewModel, IfAlreadyRegistered: IfAlreadyRegistered.Replace, preventDisposal: false, weaklyReferenced: true, serviceKey: "");
 
             var playlist = container.CreatePlaylist(_context.CreateModelPlaylist());
 
@@ -571,7 +571,7 @@ namespace Maple.Test.ViewModels
             };
             var dialogViewModel = Substitute.For<IDialogViewModel>();
             dialogViewModel.ShowMediaItemFolderSelectionDialog(NSubstitute.Arg.Any<FileSystemFolderBrowserOptions>(), NSubstitute.Arg.Any<CancellationToken>()).Returns((true, mediaItems));
-            container.UseInstance(typeof(IDialogViewModel), dialogViewModel, IfAlreadyRegistered: IfAlreadyRegistered.Replace);
+            container.UseInstance(typeof(IDialogViewModel), dialogViewModel, IfAlreadyRegistered: IfAlreadyRegistered.Replace, preventDisposal: false, weaklyReferenced: true, serviceKey: "");
 
             var playlist = container.CreatePlaylist(_context.CreateModelPlaylist());
 
@@ -597,7 +597,7 @@ namespace Maple.Test.ViewModels
             };
             var dialogViewModel = Substitute.For<IDialogViewModel>();
             dialogViewModel.ShowUrlParseDialog(NSubstitute.Arg.Any<CancellationToken>()).Returns((mediaItems));
-            container.UseInstance(typeof(IDialogViewModel), dialogViewModel, IfAlreadyRegistered: IfAlreadyRegistered.Replace);
+            container.UseInstance(typeof(IDialogViewModel), dialogViewModel, IfAlreadyRegistered: IfAlreadyRegistered.Replace, preventDisposal: false, weaklyReferenced: true, serviceKey: "");
 
             var playlist = container.CreatePlaylist(_context.CreateModelPlaylist());
 

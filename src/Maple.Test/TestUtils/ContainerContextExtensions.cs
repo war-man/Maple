@@ -9,6 +9,11 @@ namespace Maple.Test
 {
     public static class ContainerContextExtensions
     {
+        public static IUnitOfWork CreateRepository()
+        {
+            return Substitute.For<IUnitOfWork>();
+        }
+
         public static Playlists CreatePlaylists(this IContainer container)
         {
             return new Playlists(container.CreateViewModelServiceContainer(), container.Resolve<IPlaylistMapper>(), () => container.Resolve<IUnitOfWork>());

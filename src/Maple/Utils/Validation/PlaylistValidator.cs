@@ -27,7 +27,7 @@ namespace Maple
 
             RuleFor(playlist => playlist.SelectedItem).NotNull();
             RuleFor(playlist => playlist.Items).NotNull();
-            RuleFor(playlist => playlist.Items).SetCollectionValidator(mediaItemValidator);
+            RuleForEach(playlist => playlist.Items).SetValidator(mediaItemValidator);
         }
     }
 }

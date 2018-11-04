@@ -1,32 +1,27 @@
 ﻿using System.Collections.Generic;
 using System.Windows;
-
-using MahApps.Metro.IconPacks;
-
+using ControlzEx;
 using Maple.Domain;
 
-namespace Maple
+namespace Maple.Icons
 {
-    /// <summary>
-    ///
-    /// </summary>
-    /// <seealso cref="MahApps.Metro.IconPacks.PackIcon{Maple.PackIconKind}" />
-    public class PackIcon : PackIcon<PackIconKind>
+    public sealed class MaplePackIcon : PackIconBase<PackIconKind>
     {
         private static IDictionary<PackIconKind, string> _cache;
 
         /// <summary>
-        /// Initializes the <see cref="PackIcon"/> class.
+        /// Initializes the <see cref="MaplePackIcon"/> class.
         /// </summary>
-        static PackIcon()
+        static MaplePackIcon()
         {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(PackIcon), new FrameworkPropertyMetadata(typeof(PackIcon)));
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(MaplePackIcon), new FrameworkPropertyMetadata(typeof(MaplePackIcon)));
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PackIcon"/> class.
+        /// Initializes a new instance of the <see cref="MaplePackIcon"/> class.
         /// </summary>
-        public PackIcon() : base(CreateIconData)
+        public MaplePackIcon()
+            : base(CreateIconData)
         {
         }
 

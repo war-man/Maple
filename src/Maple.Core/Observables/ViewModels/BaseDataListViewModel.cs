@@ -30,7 +30,7 @@ namespace Maple.Core
         /// <value>
         /// The load command.
         /// </value>
-        public ICommand LoadCommand => AsyncCommand.Create(LoadAsync, () => !IsLoaded);
+        public ICommand LoadCommand => AsyncCommand.Create(Load, () => !IsLoaded);
 
         /// <summary>
         /// Gets the refresh command.
@@ -38,7 +38,7 @@ namespace Maple.Core
         /// <value>
         /// The refresh command.
         /// </value>
-        public ICommand RefreshCommand => AsyncCommand.Create(LoadAsync);
+        public ICommand RefreshCommand => AsyncCommand.Create(Load);
 
         /// <summary>
         /// Gets the save command.

@@ -8,7 +8,7 @@ using Maple.Localization.Properties;
 
 namespace Maple
 {
-    public class Playlists : BaseDataListViewModel<Playlist, PlaylistModel>, ISaveableViewModel, IPlaylistsViewModel
+    public sealed class Playlists : BaseDataListViewModel<Playlist, PlaylistModel>, ISaveableViewModel, IPlaylistsViewModel
     {
         private readonly Func<IUnitOfWork> _repositoryFactory;
         private readonly IPlaylistMapper _playlistMapper;
@@ -46,7 +46,7 @@ namespace Maple
             return SaveInternal();
         }
 
-        public override async Task LoadAsync()
+        public override async Task Load()
         {
             _log.Info($"{_translationService.Translate(nameof(Resources.Loading))} {_translationService.Translate(nameof(Resources.Playlists))}");
             Clear();

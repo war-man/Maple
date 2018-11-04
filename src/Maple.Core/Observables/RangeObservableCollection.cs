@@ -18,10 +18,8 @@ namespace Maple.Core
         private readonly BusyStack _busyStack;
 
         public RangeObservableCollection()
-            : base()
         {
-            _busyStack = new BusyStack();
-            _busyStack.OnChanged += (updatePending) => _suppressNotification = updatePending;
+            _busyStack = new BusyStack(updatePending => _suppressNotification = updatePending);
         }
 
         public RangeObservableCollection(IEnumerable<T> items) : this()

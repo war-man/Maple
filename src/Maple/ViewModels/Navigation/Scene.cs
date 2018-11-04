@@ -7,11 +7,6 @@ using Maple.Localization.Properties;
 
 namespace Maple
 {
-    /// <summary>
-    ///
-    /// </summary>
-    /// <seealso cref="Maple.Core.ObservableObject" />
-    /// <seealso cref="Maple.Core.ISequence" />
     public class Scene : ObservableObject, ISequence
     {
         private readonly ILocalizationService _manager;
@@ -109,8 +104,7 @@ namespace Maple
                               UpdateDisplayName();
                       };
 
-            _busyStack = new BusyStack();
-            _busyStack.OnChanged += (hasItems) => IsBusy = hasItems;
+            _busyStack = new BusyStack(hasItems => IsBusy = hasItems);
         }
 
         private void UpdateDisplayName()

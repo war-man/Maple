@@ -8,6 +8,10 @@ namespace Maple.Data
     {
         public void Configure(EntityTypeBuilder<MediaItemModel> builder)
         {
+            builder.Property(t => t.Id)
+                    .HasDefaultValueSql("GetDate()")
+                    .ValueGeneratedOnAdd();
+
             builder.Property(t => t.Title)
                    .IsRequired()
                    .HasMaxLength(50);

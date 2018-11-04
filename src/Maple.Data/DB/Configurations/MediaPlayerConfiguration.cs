@@ -8,7 +8,11 @@ namespace Maple.Data
     {
         public void Configure(EntityTypeBuilder<MediaPlayerModel> builder)
         {
+            builder.Property(t => t.Id)
+                .HasDefaultValueSql("GetDate()");
+
             builder.Property(t => t.Playlist)
+                   .HasColumnType("PlaylistModel")
                    .IsRequired();
 
             builder.Property(t => t.Name)

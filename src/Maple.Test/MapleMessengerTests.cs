@@ -7,7 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Maple.Test
 {
     [TestClass, Ignore]
-    public class MapleMessengerTests
+    public static class MapleMessengerTests
     {
         //[TestMethod]
         //public void Dispose_WithValidHubReference_UnregistersWithHub()
@@ -109,7 +109,7 @@ namespace Maple.Test
             }
         }
 
-        public class UtilityMethods
+        public static class UtilityMethods
         {
             //public static IMapleMessengerHub GetMessenger()
             //{

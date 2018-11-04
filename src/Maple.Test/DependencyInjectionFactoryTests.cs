@@ -19,7 +19,7 @@ namespace Maple.Test
         public async Task SanityMapleGetContainerTest()
         {
             var container = await DependencyInjectionFactory.Get().ConfigureAwait(false);
-            container.VerifyResolutions();
+            container.Validate();
         }
 
         [TestMethod]
@@ -28,7 +28,7 @@ namespace Maple.Test
             var container = await DependencyInjectionFactory.Get().ConfigureAwait(false);
 
             var messenger = Substitute.For<IMessenger>();
-            container.UseInstance(typeof(IMessenger), messenger, IfAlreadyRegistered: IfAlreadyRegistered.Replace);
+            container.UseInstance(typeof(IMessenger), messenger, IfAlreadyRegistered: IfAlreadyRegistered.Replace, preventDisposal: false, weaklyReferenced: true, serviceKey: "");
 
             Assert.AreEqual(messenger, container.Resolve<IMessenger>());
         }

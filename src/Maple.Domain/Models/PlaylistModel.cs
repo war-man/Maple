@@ -19,7 +19,8 @@ namespace Maple.Domain
         public bool IsShuffeling { get; set; }
         public int PrivacyStatus { get; set; }
         public int RepeatMode { get; set; }
-
+        public int MediaPlayerId { get; set; }
+        public MediaPlayerModel MediaPlayer { get; set; }
         public string Title { get; set; }
     }
 }

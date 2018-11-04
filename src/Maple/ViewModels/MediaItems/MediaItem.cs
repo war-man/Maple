@@ -8,11 +8,6 @@ using Maple.Domain;
 
 namespace Maple
 {
-    /// <summary>
-    ///
-    /// </summary>
-    /// <seealso cref="Maple.Core.BaseViewModel{Maple.Data.MediaItem}" />
-    /// <seealso cref="Maple.Core.IMediaItem" />
     [DebuggerDisplay("{Title}, {Sequence} {Location}")]
     public class MediaItem : ValidableBaseDataViewModel<MediaItem, MediaItemModel>, IMediaItem
     {
@@ -115,18 +110,8 @@ namespace Maple
             set { SetValue(ref _playlist, value, OnChanged: () => Model.Playlist = value.Model); }
         }
 
-        /// <summary>
-        /// Gets a value indicating whether this instance is file.
-        /// </summary>
-        /// <value>
-        ///   <c>true</c> if this instance is file; otherwise, <c>false</c>.
-        /// </value>
         public bool IsFile => IOUtils.IsLocalFile(Location);
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="MediaItem"/> class.
-        /// </summary>
-        /// <param name="model">The model.</param>
         public MediaItem(MediaItemModel model, IValidator<MediaItem> validator, IMessenger messenger)
             : base(model, validator, messenger)
         {
@@ -145,16 +130,9 @@ namespace Maple
             Validate();
         }
 
-        /// <summary>
-        /// Returns a <see cref="System.String" /> that represents this instance.
-        /// </summary>
-        /// <returns>
-        /// A <see cref="System.String" /> that represents this instance.
-        /// </returns>
         public override string ToString()
         {
-            var result = Title == string.Empty ? Location : Title;
-            return result;
+            return Title?.Length == 0 ? Location : Title;
         }
     }
 }

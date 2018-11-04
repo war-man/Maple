@@ -1,16 +1,11 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Maple.Domain
 {
-    public abstract class BaseObject : IBaseObject
+    public abstract class BaseObject<TKey> : IBaseObject, IEntity<TKey>
     {
-        [Key]
-        [Column(Order = 1)]
-        public int Id { get; set; }
+        public TKey Id { get; set; }
 
-        [Column(Order = 2)]
         public int Sequence { get; set; }
 
         public DateTime CreatedOn { get; set; }
@@ -19,13 +14,8 @@ namespace Maple.Domain
         public DateTime UpdatedOn { get; set; }
         public string UpdatedBy { get; set; }
 
-        [Timestamp]
-        public byte[] RowVersion { get; set; }
-
-        [NotMapped]
         public bool IsDeleted { get; set; }
 
-        [NotMapped]
-        public bool IsNew => Id == 0;
+        public bool IsNew => Id.Equals(default);
     }
 }

@@ -1,30 +1,30 @@
-﻿using System.Data.Entity;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 
 using Maple.Domain;
 
 namespace Maple.Data
 {
-    public class MediaItemRepository : MaplePlaylistRepository<MediaItemModel>, IMediaItemRepository
+    public sealed class MediaItemRepository : Repository<MediaItemModel, int>, IMediaItemRepository
     {
+        public MediaItemRepository(IUnitOfWork unitOfWork)
+            : base(unitOfWork)
+        {
+        }
+
+        public Task<IReadOnlyCollection<MediaItemModel>> GetAsync()
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public Task<MediaItemModel> GetByIdAsync(int Id)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public Task<MediaItemModel> GetMediaItemByPlaylistIdAsync(int id)
         {
-            return Task.Run(() =>
-            {
-                using (var context = new PlaylistContext())
-                    return GetMediaItemByPlaylistIdInternalAsync(id, context);
-            });
-        }
-
-        protected override DbSet<MediaItemModel> GetEntities(PlaylistContext context)
-        {
-            return context.MediaItems;
-        }
-
-        private MediaItemModel GetMediaItemByPlaylistIdInternalAsync(int id, PlaylistContext context)
-        {
-            return context.MediaItems.FirstOrDefault(p => p.Playlist.Id == id);
+            throw new System.NotImplementedException();
         }
     }
 }

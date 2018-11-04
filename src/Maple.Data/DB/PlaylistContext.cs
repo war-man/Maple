@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using Maple.Domain;
 using Maple.Log;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ namespace Maple.Data
     public sealed class PlaylistContext : DbContext
     {
         private readonly ILoggerFactory _loggerFactory;
+
         public DbSet<PlaylistModel> Playlists { get; set; }
         public DbSet<MediaItemModel> MediaItems { get; set; }
         public DbSet<MediaPlayerModel> Mediaplayers { get; set; }
@@ -24,6 +26,11 @@ namespace Maple.Data
             : base(options)
         {
             _loggerFactory = loggerFactory ?? throw new ArgumentNullException(nameof(loggerFactory));
+        }
+
+        public Task Migrate()
+        {
+            return Database.MigrateAsync();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -121,9 +128,6 @@ namespace Maple.Data
                 Sequence = 0,
                 DeviceName = "",
             };
-
-            //playlist.MediaPlayer = mediaPlayer;
-            //mediaPlayer.Playlist = playlist;
 
             modelBuilder.Entity<PlaylistModel>().HasData(playlist);
             modelBuilder.Entity<MediaPlayerModel>().HasData();

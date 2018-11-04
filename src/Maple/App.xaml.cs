@@ -10,6 +10,7 @@ using System.Windows.Threading;
 using DryIoc;
 
 using Maple.Core;
+using Maple.Data;
 using Maple.Domain;
 using Microsoft.Extensions.Logging;
 using Squirrel;
@@ -34,6 +35,11 @@ namespace Maple
             InitializeUpdater(log);
             InitializeResources(localizationService);
             InitializeLocalization();
+
+            using (var context = _container.Resolve<PlaylistContext>())
+            {
+                await context.Migrate().ConfigureAwait(false);
+            }
 
             var shell = await GetShell(localizationService, log).ConfigureAwait(true);
             shell.Show();

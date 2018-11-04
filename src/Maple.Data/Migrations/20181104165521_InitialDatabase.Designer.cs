@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Maple.Data.Migrations
 {
     [DbContext(typeof(PlaylistContext))]
-    [Migration("20181104155040_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20181104165521_InitialDatabase")]
+    partial class InitialDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

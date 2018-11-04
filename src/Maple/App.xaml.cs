@@ -41,7 +41,7 @@ namespace Maple
                 await context.Migrate().ConfigureAwait(false);
             }
 
-            var shell = await GetShell(localizationService, log).ConfigureAwait(true);
+            var shell = await GetShell(log).ConfigureAwait(true);
             shell.Show();
 
             base.OnStartup(e);
@@ -80,7 +80,7 @@ namespace Maple
         /// <remarks>
         /// order matters alot here, so be careful when modifying this
         /// </remarks>
-        private async Task<Shell> GetShell(ILocalizationService service, ILoggingService log)
+        private async Task<Shell> GetShell(ILoggingService log)
         {
             using (var vm = _container.Resolve<ISplashScreenViewModel>())
             {
